@@ -1,0 +1,222 @@
+/* LoginPage.css */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px rgb(231, 0, 11), 0 0 20px rgb(0, 174, 238);
+    }
+    50% {
+      box-shadow: 0 0 20px rgb(231, 0, 11), 0 0 40px rgb(0, 174, 238);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 8, 8, 0.6), 0 0 20px rgb(0, 174, 238);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #00AEEE, #2575fc);
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .login-form {
+    width: 400px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease-in-out;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .login-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(230, 48, 16, 0.2), rgba(37, 117, 252, 0.2));
+    animation: rotate 10s linear infinite;
+    border-radius: 60px;
+    z-index: -1;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .login-form h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 2.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+  }
+  
+  .login-form h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #e4211b;
+    border-radius: 2px;
+    animation: pulse 2s infinite;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .input-field:focus {
+    border-color: #da4012;
+    box-shadow: 0 0 10px rgba(235, 57, 13, 0.6), 0 0 20px rgba(231, 65, 23, 0.6);
+    outline: none;
+    animation: glow 1.5s infinite;
+  }
+  
+  .input-field-error {
+    border-color: #ff4d4f;
+    animation: glow 1.5s infinite;
+  }
+  
+
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+  }
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #df3f17;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .submit-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .submit-button:hover {
+    background-color: #2575fc;
+    transform: scale(1.05);
+  }
+  
+  .register-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .register-link a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link a:hover {
+    color: #2575fc;
+    text-decoration: underline;
+  }
