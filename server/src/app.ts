@@ -10,7 +10,13 @@ const app: Application = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use(cors({ origin: ['http://localhost:5173'] }));
+cors({
+  origin: [
+    'http://localhost:5173',
+    'https://ims-revonspire-client.onrender.com' // your Vite frontend deploy URL
+  ],
+  credentials: true
+});
 
 // application routes
 app.use('/api/v1', rootRouter);
