@@ -19,8 +19,11 @@
 //   // },
 // })
 
+import { defineConfig } from 'vite'
+
 export default defineConfig({
   build: {
-    outDir: 'dist' // Now relative to root
+    outDir: 'dist' // Relative to /client
   }
 })
+
