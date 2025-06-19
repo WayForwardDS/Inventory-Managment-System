@@ -4,8 +4,8 @@
   "description": "A full stack Inventory management system",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "ts-node-dev src/server.ts",
+    "build": "tsc && cp -r src/public dist/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
