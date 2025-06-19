@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 
 cors({
   origin: [
-    'https://ims-revonspire-client.onrender.com'
+    'https://imsrevenspire.netlify.app/'
   ],
   credentials: true
 });
