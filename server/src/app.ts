@@ -7,24 +7,40 @@ import globalErrorHandler from './middlewares/globalErrorhandler';
 
 const app: Application = express();
 
+// ✅ Define allowed origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://imsrevenspire.netlify.app'
+];
+
+// ✅ Improved CORS config with dynamic origin checking
+const corsOptions: cors.CorsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// ✅ Middleware
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://imsrevenspire.netlify.app'
-  ],
-  credentials: true
-}));
-
-
-
-// application routes
+// ✅ Application routes
 app.use('/api/v1', rootRouter);
 
-app.use(globalErrorHandler);
+// ✅ Health check route (optional but useful)
+app.get('/api/v1/health', (req, res) => {
+  res.json({ status: 'OK' });
+});
 
+// ✅ Global error handling
+app.use(globalErrorHandler);
 app.use(notFound);
 
 export default app;
