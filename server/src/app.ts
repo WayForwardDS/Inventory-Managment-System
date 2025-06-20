@@ -12,11 +12,12 @@ app.use(morgan('dev'));
 
 app.use(cors({
   origin: [
-    'http://localhost:5173',                  // local dev
-    'https://imsrevenspire.netlify.app'       // ✅ your Netlify frontend
+    'http://localhost:5173',
+    'https://imsrevenspire.netlify.app'
   ],
-  credentials: true  // only if you're using cookies/auth sessions
+  credentials: true
 }));
+
 
 
 // application routes
