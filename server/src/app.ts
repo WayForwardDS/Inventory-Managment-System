@@ -10,12 +10,14 @@ const app: Application = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-cors({
+app.use(cors({
   origin: [
-    'https://imsrevenspire.netlify.app/'
+    'http://localhost:5173',                  // local dev
+    'https://imsrevenspire.netlify.app'       // ✅ your Netlify frontend
   ],
-  credentials: true
-});
+  credentials: true  // only if you're using cookies/auth sessions
+}));
+
 
 // application routes
 app.use('/api/v1', rootRouter);
